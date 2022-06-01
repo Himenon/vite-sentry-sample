@@ -2,15 +2,18 @@ import { defineConfig } from "vite";
 import type { ViteSentryPluginOptions } from "vite-plugin-sentry";
 import viteSentry from "vite-plugin-sentry";
 import react from "@vitejs/plugin-react";
+import * as pkg from "./package.json";
+
+const env = process.env;
 
 const sentryConfig: ViteSentryPluginOptions = {
-  url: process.env.SENTRY_DSN_URL,
-  authToken: process.env.SENTRY_AUTH_TOKEN,
-  org: process.env.SENTRY_ORG,
-  project: process.env.SENTRY_PROJECT,
-  release: "1.0",
+  url: "https://sentry.io",
+  authToken: env.SENTRY_AUTH_TOKEN,
+  org: env.SENTRY_ORG,
+  project: env.SENTRY_PROJECT,
+  release: pkg.version,
   deploy: {
-    env: process.env.SENTRY_ENVIRONMENT,
+    env: env.SENTRY_ENVIRONMENT,
   },
   setCommits: {
     auto: true,
@@ -23,5 +26,8 @@ const sentryConfig: ViteSentryPluginOptions = {
 };
 
 export default defineConfig({
+  build: {
+    sourcemap: true,
+  },
   plugins: [react(), viteSentry(sentryConfig)],
 });
