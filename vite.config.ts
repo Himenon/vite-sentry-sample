@@ -24,13 +24,20 @@ const sentryConfig: ViteSentryPluginOptions = {
   },
 };
 
-export default defineConfig({
-  base: "/vite-sentry-sample",
-  build: {
-    sourcemap: true,
-  },
-  plugins: [
-    react(),
-    env.DEPLOY_SENTRY !== "false" ? viteSentry(sentryConfig) : undefined,
-  ],
+console.log(`env.SENTRY_RELEASE = ${env.SENTRY_RELEASE}`);
+
+export default defineConfig(() => {
+  return {
+    base: "/vite-sentry-sample",
+    define: {
+      "process.env.APP_VERSION": JSON.stringify(env.SENTRY_RELEASE),
+    },
+    build: {
+      sourcemap: true,
+    },
+    plugins: [
+      react(),
+      env.DEPLOY_SENTRY !== "false" ? viteSentry(sentryConfig) : undefined,
+    ],
+  }
 });

@@ -6,7 +6,7 @@ import { BrowserTracing } from "@sentry/tracing";
 import "./index.css";
 
 Sentry.init({
-  dsn: "https://6c504fbf92444eefa49976dae9ca8231@o1267824.ingest.sentry.io/6454582",
+  dsn: import.meta.env.SENTRY_DSN_URL,
   integrations: [new BrowserTracing()],
   tracesSampleRate: 1.0,
 });
