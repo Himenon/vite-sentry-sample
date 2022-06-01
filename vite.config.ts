@@ -24,11 +24,9 @@ const sentryConfig: ViteSentryPluginOptions = {
   },
 };
 
-console.log(`env.SENTRY_RELEASE = ${env.SENTRY_RELEASE}`);
-
 export default defineConfig(() => {
   return {
-    base: "/vite-sentry-sample",
+    base: "/vite-sentry-sample/",
     define: {
       "process.env.APP_VERSION": JSON.stringify(env.SENTRY_RELEASE),
     },
@@ -37,7 +35,7 @@ export default defineConfig(() => {
     },
     plugins: [
       react(),
-      env.DEPLOY_SENTRY !== "false" ? viteSentry(sentryConfig) : undefined,
+      env.DEPLOY_SENTRY === "true" ? viteSentry(sentryConfig) : undefined,
     ],
   }
 });
