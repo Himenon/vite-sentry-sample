@@ -29,5 +29,8 @@ export default defineConfig({
   build: {
     sourcemap: true,
   },
-  plugins: [react(), viteSentry(sentryConfig)],
+  plugins: [
+    react(),
+    env.DEPLOY_SENTRY !== "false" ? viteSentry(sentryConfig) : undefined,
+  ],
 });
