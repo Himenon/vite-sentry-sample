@@ -7,7 +7,7 @@ const sentryConfig: ViteSentryPluginOptions = {
   url: process.env.SENTRY_DSN_URL,
   authToken: process.env.SENTRY_AUTH_TOKEN,
   org: process.env.SENTRY_ORG,
-  project: "my_project",
+  project: process.env.SENTRY_PROJECT,
   release: "1.0",
   deploy: {
     env: process.env.SENTRY_ENVIRONMENT,
