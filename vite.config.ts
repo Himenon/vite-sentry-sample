@@ -25,6 +25,7 @@ const sentryConfig: ViteSentryPluginOptions = {
 };
 
 export default defineConfig({
+  base: "/vite-sentry-sample",
   build: {
     sourcemap: true,
   },
