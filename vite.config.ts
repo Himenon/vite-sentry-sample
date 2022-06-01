@@ -14,9 +14,6 @@ const sentryConfig: ViteSentryPluginOptions = {
   deploy: {
     env: env.SENTRY_ENVIRONMENT,
   },
-  setCommits: {
-    auto: true,
-  },
   sourceMaps: {
     include: ["./dist/assets"],
     ignore: ["node_modules"],
