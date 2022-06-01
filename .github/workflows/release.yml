@@ -15,7 +15,7 @@ jobs:
       - uses: ./.github/actions/initialize
       - name: Build
         run: |
-          pnpm run build
+          SENTRY_RELEASE=${{ github.event.release.tag_name }} pnpm run build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
