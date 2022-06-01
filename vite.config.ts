@@ -4,13 +4,13 @@ import viteSentry from "vite-plugin-sentry";
 import react from "@vitejs/plugin-react";
 
 const sentryConfig: ViteSentryPluginOptions = {
-  url: "https://my.ondemand.sentry.com",
-  authToken: "<SECRET_TOKEN_HERE>",
-  org: "my_org",
+  url: process.env.SENTRY_DSN_URL,
+  authToken: process.env.SENTRY_AUTH_TOKEN,
+  org: process.env.SENTRY_ORG,
   project: "my_project",
   release: "1.0",
   deploy: {
-    env: "production",
+    env: process.env.SENTRY_ENVIRONMENT,
   },
   setCommits: {
     auto: true,
