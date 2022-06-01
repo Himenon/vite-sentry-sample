@@ -23,7 +23,7 @@ jobs:
       - run: pnpm i --frozen-lockfile
       - name: Build
         run: |
-          SENTRY_RELEASE=${{ github.event.release.tag_name }} pnpm run build
+          SENTRY_ENVIRONMENT=production DEPLOY_SENTRY=true SENTRY_RELEASE=${{ github.event.release.tag_name }} pnpm run build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
