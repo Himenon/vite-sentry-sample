@@ -24,6 +24,7 @@ jobs:
       - name: Build
         run: |
           SENTRY_ENVIRONMENT=production DEPLOY_SENTRY=true APP_VERSION=${{ github.event.release.tag_name }} pnpm run build
+          pnpm run clean
         env:
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}

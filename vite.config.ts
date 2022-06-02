@@ -12,7 +12,7 @@ const sentryConfig: ViteSentryPluginOptions = {
   project: env.SENTRY_PROJECT,
   release: env.APP_VERSION,
   deploy: {
-    env: env.SENTRY_ENVIRONMENT,
+    env: env.SENTRY_ENVIRONMENT || "development",
   },
   sourceMaps: {
     include: ["./dist/assets"],
