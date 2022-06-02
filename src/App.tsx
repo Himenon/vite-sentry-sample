@@ -15,8 +15,8 @@ function App() {
     <div>
       <h1>Sentry Sample {version}</h1>
       <div>
-        <button onClick={handleOnClick}>Throw Error</button>
-        <button onClick={handleOnClick2}>Random Error</button>
+        <button onClick={handleOnClick}>Throw Error {version}</button>
+        <button onClick={handleOnClick2}>Random Error {version}</button>
       </div>
     </div>
   )
