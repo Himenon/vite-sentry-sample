@@ -24,6 +24,12 @@ jobs:
       - name: Build
         run: |
           SENTRY_ENVIRONMENT=production DEPLOY_SENTRY=true SENTRY_RELEASE=${{ github.event.release.tag_name }} pnpm run build
+        env:
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ENVIRONMENT: ${{ secrets.SENTRY_ENVIRONMENT }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+          SENTRY_DSN_URL: ${{ secrets.SENTRY_DSN_URL }}
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
