@@ -17,7 +17,7 @@ const sentryConfig: ViteSentryPluginOptions = {
   sourceMaps: {
     include: ["./dist/assets"],
     ignore: ["node_modules"],
-    urlPrefix: "~/vite-sentry-sample/assets",
+    urlPrefix: "~/assets",
   },
 };
 
