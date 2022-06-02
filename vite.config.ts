@@ -10,7 +10,7 @@ const sentryConfig: ViteSentryPluginOptions = {
   authToken: env.SENTRY_AUTH_TOKEN,
   org: env.SENTRY_ORG,
   project: env.SENTRY_PROJECT,
-  release: env.SENTRY_RELEASE,
+  release: env.APP_VERSION,
   deploy: {
     env: env.SENTRY_ENVIRONMENT,
   },
@@ -25,7 +25,8 @@ export default defineConfig(() => {
   return {
     base: "/vite-sentry-sample/",
     define: {
-      "process.env.APP_VERSION": JSON.stringify(env.SENTRY_RELEASE),
+      "process.env.APP_VERSION": JSON.stringify(env.APP_VERSION),
+      "process.env.SENTRY_DSN_URL": JSON.stringify(env.SENTRY_DSN_URL),
     },
     build: {
       sourcemap: true,
