@@ -4,9 +4,7 @@ echo "Parameter"
 echo "  APP_VERSION        = $APP_VERSION"
 echo "  SENTRY_PROJECT     = $SENTRY_PROJECT"
 echo "  SENTRY_ENVIRONMENT = $SENTRY_ENVIRONMENT"
-
-GIT_REF=$(git describe --always)
-SENTRY_RELEASE_VERSION="${SENTRY_PROJECT}@${GIT_REF}"
+REPO=vite-sentry-sample
 
 echo ""
 
@@ -27,7 +25,7 @@ echo ""
 # 指定したリリースにコミット履歴を紐付け
 # @see https://docs.sentry.io/product/cli/releases/#sentry-cli-commit-integration
 echo "> sentry-cli releases set-commits --auto"
-npx sentry-cli releases set-commits --auto $APP_VERSION
+npx sentry-cli releases set-commits $APP_VERSION --commit "$REPO@$GIT_REF"
 echo ""
 
 # リリース内容を確定
