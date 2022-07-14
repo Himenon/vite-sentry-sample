@@ -4,7 +4,7 @@ echo "Parameter"
 echo "  APP_VERSION        = $APP_VERSION"
 echo "  SENTRY_PROJECT     = $SENTRY_PROJECT"
 echo "  SENTRY_ENVIRONMENT = $SENTRY_ENVIRONMENT"
-REPO=vite-sentry-sample
+REPO=Himenon/vite-sentry-sample
 GIT_REF=$(git describe --always)
 
 echo ""
