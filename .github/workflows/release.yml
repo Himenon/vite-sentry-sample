@@ -23,8 +23,8 @@ jobs:
       - run: pnpm i --frozen-lockfile
       - name: Build
         run: |
-          APP_VERSION=${{ github.event.release.tag_name }}
-          SENTRY_ENVIRONMENT=production
+          export APP_VERSION=${{ github.event.release.tag_name }}
+          export SENTRY_ENVIRONMENT=production
           pnpm run build
           ./sentry.sh
           pnpm run clean
