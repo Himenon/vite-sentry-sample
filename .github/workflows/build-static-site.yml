@@ -26,4 +26,4 @@ jobs:
       - run: pnpm i --frozen-lockfile
       - name: Build Static Site
         run: |
-          DEPLOY_SENTRY=false pnpm run build
+          pnpm run build
